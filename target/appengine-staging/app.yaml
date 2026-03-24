@@ -1,0 +1,10 @@
+runtime: java21
+inbound_services:
+- warmup
+app_engine_apis: True
+auto_id_policy: default
+handlers:
+- url: /.*
+  script: unused
+  login: optional
+  secure: optional

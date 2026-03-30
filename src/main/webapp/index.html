@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADC API Tester</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="hero">
+        <div>
+            <h1>ADC API Tester</h1>
+            <p>Formulario simples para testar todos os endpoints REST.</p>
+        </div>
+        <div class="hero-actions">
+            <label for="base-url">Base REST</label>
+            <input id="base-url" type="text" readonly>
+        </div>
+    </header>
+
+    <main class="grid">
+        <section class="card">
+            <h2>CreateAccount</h2>
+            <form data-endpoint="createaccount" data-builder="createAccount">
+                <input name="username" placeholder="username" required>
+                <input name="password" type="password" placeholder="password" required>
+                <input name="confirmation" type="password" placeholder="confirmation" required>
+                <input name="phone" placeholder="phone" required>
+                <input name="address" placeholder="address" required>
+                <select name="role" required>
+                    <option value="">role</option>
+                    <option value="USER">USER</option>
+                    <option value="BOFFICER">BOFFICER</option>
+                    <option value="ADMIN">ADMIN</option>
+                </select>
+                <button type="submit">Enviar</button>
+            </form>
+            <pre class="result"></pre>
+        </section>
+
+        <section class="card">
+            <h2>Login</h2>
+            <form data-endpoint="login" data-builder="login">
+                <input name="username" placeholder="username" required>
+                <input name="password" type="password" placeholder="password" required>
+                <button type="submit">Enviar</button>
+            </form>
+            <pre class="result"></pre>
+        </section>
+
+        <section class="card">
+            <h2>ShowUsers</h2>
+            <form data-endpoint="showusers" data-builder="tokenOnly">
+                <input name="tokenId" placeholder="tokenId" required>
+                <input name="tokenUsername" placeholder="token.username">
+                <input name="tokenRole" placeholder="token.role">
+                <input name="issuedAt" type="number" placeholder="issuedAt">
+                <input name="expiresAt" type="number" placeholder="expiresAt">
+                <button type="submit">Enviar</button>
+            </form>
+            <pre class="result"></pre>
+        </section>
+
+        <section class="card">
+            <h2>DeleteAccount</h2>
+            <form data-endpoint="deleteaccount" data-builder="deleteAccount">
+                <input name="username" placeholder="username" required>
+                <input name="tokenId" placeholder="tokenId" required>
+                <input name="tokenRole" placeholder="token.role">
+                <input name="issuedAt" type="number" placeholder="issuedAt">
+                <input name="expiresAt" type="number" placeholder="expiresAt">
+                <button type="submit">Enviar</button>
+            </form>
+            <pre class="result"></pre>
+        </section>
+
+        <section class="card">
+            <h2>ModifyAccountAttributes</h2>
+            <form data-endpoint="modaccount" data-builder="modifyAccount">
+                <input name="username" placeholder="username" required>
+                <input name="phone" placeholder="attributes.phone">
+                <input name="address" placeholder="attributes.address">
+                <input name="tokenId" placeholder="tokenId" required>
+                <input name="tokenUsername" placeholder="token.username">
+                <input name="tokenRole" placeholder="token.role">
+                <input name="issuedAt" type="number" placeholder="issuedAt">
+                <input name="expiresAt" type="number" placeholder="expiresAt">
+                <button type="submit">Enviar</button>
+            </form>
+            <pre class="result"></pre>
+        </section>
+
+        <section class="card">
+            <h2>ShowAuthenticatedSessions</h2>
+            <form data-endpoint="showauthsessions" data-builder="tokenOnly">
+                <input name="tokenId" placeholder="tokenId" required>
+                <input name="tokenUsername" placeholder="token.username">
+                <input name="tokenRole" placeholder="token.role">
+                <input name="issuedAt" type="number" placeholder="issuedAt">
+                <input name="expiresAt" type="number" placeholder="expiresAt">
+                <button type="submit">Enviar</button>
+            </form>
+            <pre class="result"></pre>
+        </section>
+
+        <section class="card">
+            <h2>ShowUserRole</h2>
+            <form data-endpoint="showuserrole" data-builder="usernameWithToken">
+                <input name="username" placeholder="username" required>
+                <input name="tokenId" placeholder="tokenId" required>
+                <input name="tokenUsername" placeholder="token.username">
+                <input name="tokenRole" placeholder="token.role">
+                <input name="issuedAt" type="number" placeholder="issuedAt">
+                <input name="expiresAt" type="number" placeholder="expiresAt">
+                <button type="submit">Enviar</button>
+            </form>
+            <pre class="result"></pre>
+        </section>
+
+        <section class="card">
+            <h2>ChangeUserRole</h2>
+            <form data-endpoint="changeuserrole" data-builder="changeUserRole">
+                <input name="username" placeholder="username" required>
+                <select name="newRole" required>
+                    <option value="">newRole</option>
+                    <option value="USER">USER</option>
+                    <option value="BOFFICER">BOFFICER</option>
+                    <option value="ADMIN">ADMIN</option>
+                </select>
+                <input name="tokenId" placeholder="tokenId" required>
+                <input name="tokenUsername" placeholder="token.username">
+                <input name="tokenRole" placeholder="token.role">
+                <input name="issuedAt" type="number" placeholder="issuedAt">
+                <input name="expiresAt" type="number" placeholder="expiresAt">
+                <button type="submit">Enviar</button>
+            </form>
+            <pre class="result"></pre>
+        </section>
+
+        <section class="card">
+            <h2>ChangeUserPassword</h2>
+            <form data-endpoint="changeuserpwd" data-builder="changePassword">
+                <input name="username" placeholder="username" required>
+                <input name="oldPassword" type="password" placeholder="oldPassword" required>
+                <input name="newPassword" type="password" placeholder="newPassword" required>
+                <input name="tokenId" placeholder="tokenId" required>
+                <input name="tokenUsername" placeholder="token.username">
+                <input name="tokenRole" placeholder="token.role">
+                <input name="issuedAt" type="number" placeholder="issuedAt">
+                <input name="expiresAt" type="number" placeholder="expiresAt">
+                <button type="submit">Enviar</button>
+            </form>
+            <pre class="result"></pre>
+        </section>
+
+        <section class="card">
+            <h2>Logout</h2>
+            <form data-endpoint="logout" data-builder="usernameWithToken">
+                <input name="username" placeholder="username" required>
+                <input name="tokenId" placeholder="tokenId" required>
+                <input name="tokenUsername" placeholder="token.username">
+                <input name="tokenRole" placeholder="token.role">
+                <input name="issuedAt" type="number" placeholder="issuedAt">
+                <input name="expiresAt" type="number" placeholder="expiresAt">
+                <button type="submit">Enviar</button>
+            </form>
+            <pre class="result"></pre>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

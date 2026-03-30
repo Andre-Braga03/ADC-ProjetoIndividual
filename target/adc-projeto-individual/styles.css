@@ -1,0 +1,116 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #1f2937;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 16px;
+    padding: 24px;
+    background: linear-gradient(135deg, #1d4ed8, #2563eb);
+    color: #fff;
+}
+
+.hero h1 {
+    margin: 0 0 8px;
+}
+
+.hero p {
+    margin: 0;
+    opacity: 0.92;
+}
+
+.hero-actions {
+    min-width: 280px;
+}
+
+.hero-actions label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+.hero-actions input {
+    width: 100%;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    padding: 24px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.card h2 {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+form {
+    display: grid;
+    gap: 10px;
+}
+
+input,
+select,
+button,
+textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+input:focus,
+select:focus,
+button:focus {
+    outline: 2px solid #93c5fd;
+    border-color: #60a5fa;
+}
+
+button {
+    border: 0;
+    background: #2563eb;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+.result {
+    min-height: 140px;
+    margin: 14px 0 0;
+    padding: 12px;
+    border-radius: 10px;
+    background: #0f172a;
+    color: #e2e8f0;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    font-size: 13px;
+}
+
+@media (max-width: 720px) {
+    .hero {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}

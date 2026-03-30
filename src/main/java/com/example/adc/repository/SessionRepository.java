@@ -5,6 +5,11 @@ import com.example.adc.model.Session;
 import com.google.cloud.datastore.Datastore;
 import com.google.cloud.datastore.Entity;
 import com.google.cloud.datastore.Key;
+import com.google.cloud.datastore.Query;
+import com.google.cloud.datastore.QueryResults;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SessionRepository {
 
@@ -22,7 +27,7 @@ public class SessionRepository {
 
        Entity entity = Entity.newBuilder(key)
        .set("tokenId", session.getTokenId())
-       .set("userId", session.getUserId())
+       .set("username", session.getUsername())
        .set("role", session.getRole())
        .set("issuedAt", session.getIssuedAt())
        .set("expiresAt", session.getExpiresAt())
@@ -30,6 +35,12 @@ public class SessionRepository {
 
        datastore.put(entity);
     }
+
+    public void delete(Session session){
+      Key key = datastore.newKeyFactory().setKind(KIND).newKey(session.getTokenId());
+      datastore.delete(key);
+    }
+    
 
 
     public Session findByTokenId(String tokenId){
@@ -40,12 +51,51 @@ public class SessionRepository {
 
       return new Session(
         entity.getString("tokenId"),
-        entity.getString("userId"),
+        readString(entity, "username"),
         entity.getString("role"),
-        entity.getString("issuedAt"),
-        entity.getString("expiresAt")
+        readTimestamp(entity, "issuedAt"),
+        readTimestamp(entity, "expiresAt")
       );
 
     }
+
+    public List<Session> findAll() {
+      Query<Entity> query = Query.newEntityQueryBuilder()
+              .setKind(KIND)
+              .build();
+
+      QueryResults<Entity> results = datastore.run(query);
+      List<Session> sessions = new ArrayList<>();
+
+      while (results.hasNext()) {
+        Entity entity = results.next();
+        sessions.add(new Session(
+                entity.getString("tokenId"),
+                readString(entity, "username"),
+                entity.getString("role"),
+                readTimestamp(entity, "issuedAt"),
+                readTimestamp(entity, "expiresAt")
+        ));
+      }
+
+      return sessions;
+    }
+
+    private String readString(Entity entity, String propertyName) {
+      if (!entity.contains(propertyName)) {
+        return "";
+      }
+      return entity.getString(propertyName);
+    }
+
+    private long readTimestamp(Entity entity, String propertyName) {
+      try {
+        return entity.getLong(propertyName);
+      } catch (Exception e) {
+        return Long.parseLong(entity.getString(propertyName));
+      }
+    }
+
+    
     
 }

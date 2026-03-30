@@ -1,10 +1,5 @@
 C:\Users\andre\Desktop\fct\3ºano\2ºSemestre\ADC\proj individual\ADC-ProjetoIndividual\src\main\java\com\example\adc\config\DatastoreConfig.java
 C:\Users\andre\Desktop\fct\3ºano\2ºSemestre\ADC\proj individual\ADC-ProjetoIndividual\src\main\java\com\example\adc\config\JaxRsConfig.java
-C:\Users\andre\Desktop\fct\3ºano\2ºSemestre\ADC\proj individual\ADC-ProjetoIndividual\src\main\java\com\example\adc\dto\account\CreateAccountRequest.java
-C:\Users\andre\Desktop\fct\3ºano\2ºSemestre\ADC\proj individual\ADC-ProjetoIndividual\src\main\java\com\example\adc\dto\account\CreateAccountResponse.java
-C:\Users\andre\Desktop\fct\3ºano\2ºSemestre\ADC\proj individual\ADC-ProjetoIndividual\src\main\java\com\example\adc\dto\account\ErrorResponse.java
-C:\Users\andre\Desktop\fct\3ºano\2ºSemestre\ADC\proj individual\ADC-ProjetoIndividual\src\main\java\com\example\adc\dto\login\LoginRequest.java
-C:\Users\andre\Desktop\fct\3ºano\2ºSemestre\ADC\proj individual\ADC-ProjetoIndividual\src\main\java\com\example\adc\dto\login\LoginResponse.java
 C:\Users\andre\Desktop\fct\3ºano\2ºSemestre\ADC\proj individual\ADC-ProjetoIndividual\src\main\java\com\example\adc\error\API_ERRORS.java
 C:\Users\andre\Desktop\fct\3ºano\2ºSemestre\ADC\proj individual\ADC-ProjetoIndividual\src\main\java\com\example\adc\error\ApiError.java
 C:\Users\andre\Desktop\fct\3ºano\2ºSemestre\ADC\proj individual\ADC-ProjetoIndividual\src\main\java\com\example\adc\model\Session.java

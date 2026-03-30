@@ -1,14 +1,14 @@
 package com.example.adc.resource;
 
 
-import com.example.adc.dto.account.CreateAccountRequest;
-import com.example.adc.dto.login.LoginRequest;
 import com.example.adc.service.AccountAuthService;
+import jakarta.json.JsonObject;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 
 
 
@@ -21,7 +21,7 @@ public class AccountResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
 
-    public Object createAccount(CreateAccountRequest request){
+    public Response createAccount(JsonObject request){
           return accountService.createAccount(request);  
     }
 
@@ -30,7 +30,70 @@ public class AccountResource {
     @Path("/login")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Object login(LoginRequest request){
+    public Response login(JsonObject request){
        return accountService.login(request);
+    }
+
+    @POST
+    @Path("/showusers")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response showUsers(JsonObject request){
+       return accountService.showUsers(request);
+    }
+
+    @POST
+    @Path("/deleteaccount")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response deleteAccount(JsonObject request){
+       return accountService.delete(request);
+    }
+
+    @POST
+    @Path("/modaccount")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response modifyAttribute(JsonObject request){
+       return accountService.modifyAttribute(request);
+    }
+    @POST
+    @Path("/showauthsessions")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response showAuthSessions(JsonObject request){
+       return accountService.showAuthSessions(request);
+    }
+
+    @POST
+    @Path("/showuserrole")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response showUserRole(JsonObject request){
+       return accountService.showUserRole(request);
+    }
+
+    @POST
+    @Path("/changeuserrole")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response changeUserRole(JsonObject request){
+       return accountService.changeUserRole(request);
+    }
+
+    @POST
+    @Path("/changeuserpwd")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response changeUserPassword(JsonObject request){
+       return accountService.changeUserPassword(request);
+    }
+
+    @POST
+    @Path("/logout")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response logout(JsonObject request){
+       return accountService.logout(request);
     }
 }

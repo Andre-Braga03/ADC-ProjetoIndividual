@@ -12,8 +12,14 @@ import jakarta.ws.rs.core.Response;
 
 
 
+//*
+// This class is the resource for the account authentication service.
+// It handles the requests for the account authentication service.
+// It is used to create a new account, login, show users, delete an account, modify an account, show authentication sessions, show user role, change user role, change user password, and logout.
+// */
 @Path("/")
 public class AccountResource {
+   
 
     private final AccountAuthService accountService = new AccountAuthService();
     @POST

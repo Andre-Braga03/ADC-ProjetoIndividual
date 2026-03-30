@@ -11,6 +11,11 @@ import com.google.cloud.datastore.QueryResults;
 import java.util.ArrayList;
 import java.util.List;
 
+//*
+// This class is the repository for the session.
+// It handles the repository for the session.
+// It is used to relate all sessions with the datastore.
+// */
 public class SessionRepository {
 
     private static final String KIND = "Session";

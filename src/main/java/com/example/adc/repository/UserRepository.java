@@ -12,7 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 
+ * This class is the repository for the user.
+ * It handles the repository for the user.
+ * It is used to relate all users with the datastore.
  */
 public class UserRepository {
 

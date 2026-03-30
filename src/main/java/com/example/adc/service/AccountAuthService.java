@@ -14,6 +14,12 @@ import java.time.Instant;
 import java.util.Set;
 import java.util.UUID;
 
+
+//*
+// This class is the service for the account authentication service.
+// It handles the business logic for the account authentication service.
+// It is used to create a new account, login, show users, delete an account, modify an account, show authentication sessions, show user role, change user role, change user password, and logout.
+// */
 public class AccountAuthService {
 
     private static final Set<String> ALLOWED_ROLES = Set.of("USER", "BOFFICER", "ADMIN");

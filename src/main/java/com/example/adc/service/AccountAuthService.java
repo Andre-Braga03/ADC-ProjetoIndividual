@@ -66,7 +66,7 @@ public class AccountAuthService {
             return error(API_ERRORS.USER_ALREADY_EXISTS);
         }
 
-        if (!username.contains("@")) {
+        if (!isValidEmail(username)) {
             return error(API_ERRORS.INVALID_INPUT);
         }
 
@@ -554,6 +554,14 @@ public class AccountAuthService {
         } catch (Exception e) {
             return error(API_ERRORS.FORBIDDEN);
         }
+    }
+
+    private boolean isValidEmail(String username) {
+        if (username == null) {
+            return false;
+        }
+    
+        return username.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$");
     }
 
     private boolean isBlank(String value) {

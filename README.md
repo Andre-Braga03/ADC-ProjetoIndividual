@@ -223,6 +223,14 @@ Exemplo:
 mvn clean package appengine:deploy "-Dapp.deploy.projectId=adc-individual-65702" "-Dapp.deploy.version=v1"
 ```
 
+## Projeto publicado no Google App Engine
+
+Aplicacao web:
+- [ADC API Tester](https://adc-individual-65702.ew.r.appspot.com/)
+
+Base REST publicada:
+- `https://adc-individual-65702.ew.r.appspot.com/rest/`
+
 ## Persistencia
 Os dados sao guardados no Google Cloud Datastore com duas entidades principais:
 - `User`

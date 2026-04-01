@@ -56,10 +56,10 @@ public class SessionRepository {
 
       return new Session(
         entity.getString("tokenId"),
-        readString(entity, "username"),
+        entity.getString("username"),
         entity.getString("role"),
-        readTimestamp(entity, "issuedAt"),
-        readTimestamp(entity, "expiresAt")
+        entity.getLong("issuedAt"),
+        entity.getLong("expiresAt")
       );
 
     }
@@ -76,29 +76,14 @@ public class SessionRepository {
         Entity entity = results.next();
         sessions.add(new Session(
                 entity.getString("tokenId"),
-                readString(entity, "username"),
+                entity.getString("username"),
                 entity.getString("role"),
-                readTimestamp(entity, "issuedAt"),
-                readTimestamp(entity, "expiresAt")
+                entity.getLong("issuedAt"),
+                entity.getLong("expiresAt")
         ));
       }
 
       return sessions;
-    }
-
-    private String readString(Entity entity, String propertyName) {
-      if (!entity.contains(propertyName)) {
-        return "";
-      }
-      return entity.getString(propertyName);
-    }
-
-    private long readTimestamp(Entity entity, String propertyName) {
-      try {
-        return entity.getLong(propertyName);
-      } catch (Exception e) {
-        return Long.parseLong(entity.getString(propertyName));
-      }
     }
 
     
